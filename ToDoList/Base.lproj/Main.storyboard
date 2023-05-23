@@ -30,11 +30,62 @@
                             <outlet property="delegate" destination="iCc-id-YKO" id="ODB-5W-giD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My To-Dos" id="7xc-5c-nCp"/>
+                    <navigationItem key="navigationItem" title="My To-Dos" id="7xc-5c-nCp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="79A-fj-s3p">
+                            <connections>
+                                <segue destination="9uJ-UG-Bzm" kind="presentation" id="j7W-u9-kcm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vES-u5-gF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11" y="-732"/>
+        </scene>
+        <!--New To-Do-->
+        <scene sceneID="jOQ-LS-uIy">
+            <objects>
+                <tableViewController id="leU-Tx-HqN" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="DcU-sc-Qab">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WlW-B7-RFa">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WlW-B7-RFa" id="VLc-Qx-LPV">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="leU-Tx-HqN" id="eo6-8I-znO"/>
+                            <outlet property="delegate" destination="leU-Tx-HqN" id="SgB-Io-mAF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New To-Do" largeTitleDisplayMode="never" id="dgJ-3J-K4x"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ivt-IZ-I4Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1717" y="-732"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p7r-n5-8aZ">
+            <objects>
+                <navigationController id="9uJ-UG-Bzm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IqX-NC-Quo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="leU-Tx-HqN" kind="relationship" relationship="rootViewController" id="dib-dE-gba"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kuf-3T-e2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808" y="-732"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sRp-5k-kbw">

@@ -45,7 +45,7 @@
         <!--New To-Do-->
         <scene sceneID="jOQ-LS-uIy">
             <objects>
-                <tableViewController id="leU-Tx-HqN" sceneMemberID="viewController">
+                <tableViewController id="leU-Tx-HqN" customClass="ToDoDetailTableViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="DcU-sc-Qab">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,6 +64,10 @@
                                                     <rect key="frame" x="63" y="5" width="310" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="returnPressed:" destination="leU-Tx-HqN" eventType="primaryActionTriggered" id="Riy-9D-bpA"/>
+                                                        <action selector="textEditingChanged:" destination="leU-Tx-HqN" eventType="editingChanged" id="gAd-8v-EX1"/>
+                                                    </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pl-qg-PBv" userLabel="Is CompleteButton">
                                                     <rect key="frame" x="13" y="4" width="28" height="35"/>
@@ -74,6 +78,9 @@
                                                     <state key="selected" image="checkmark.circle.fill" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="isCompleteButtonTapped:" destination="leU-Tx-HqN" eventType="touchUpInside" id="46D-dj-yZn"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -124,6 +131,9 @@
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="HJu-HN-sdr">
                                                     <rect key="frame" x="20" y="0.0" width="349" height="216.33333333333334"/>
+                                                    <connections>
+                                                        <action selector="datePickerChanged:" destination="leU-Tx-HqN" eventType="valueChanged" id="sTB-md-fK0"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -181,6 +191,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDateDatePicker" destination="HJu-HN-sdr" id="1Th-tF-WLR"/>
+                        <outlet property="dueDateLabel" destination="M5M-cv-kBw" id="jL1-AA-gLk"/>
+                        <outlet property="isCompleteButton" destination="6Pl-qg-PBv" id="F0O-V9-fy6"/>
+                        <outlet property="notesTextView" destination="a9R-4x-ZZp" id="xTB-FZ-BI2"/>
+                        <outlet property="saveButton" destination="xxj-9F-zRx" id="VFb-jL-Nzl"/>
+                        <outlet property="titleTextField" destination="ovD-p7-sZK" id="cxH-A3-PNc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivt-IZ-I4Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="nxn-oo-MgU" userLabel="Exit" sceneMemberID="exit"/>

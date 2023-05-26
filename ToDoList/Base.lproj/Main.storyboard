@@ -16,13 +16,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="akh-Rm-5jA">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="akh-Rm-5jA" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="32"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="akh-Rm-5jA" id="1B7-98-Xdb">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="32"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltf-6V-EKW">
+                                            <rect key="frame" x="77" y="4" width="281" height="21.333333333333332"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eta-SR-xtY" userLabel="Is CompleteButton">
+                                            <rect key="frame" x="31" y="-2" width="28" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" image="circle" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                            </state>
+                                            <state key="selected" image="checkmark.circle.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="completeButtonTapped:" destination="akh-Rm-5jA" eventType="touchUpInside" id="Pb4-qM-ZaR"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Ltf-6V-EKW" firstAttribute="top" secondItem="1B7-98-Xdb" secondAttribute="top" constant="4" id="2Pd-Fa-Tmy"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ltf-6V-EKW" secondAttribute="trailing" constant="35" id="F5b-VI-LkB"/>
+                                        <constraint firstItem="Ltf-6V-EKW" firstAttribute="leading" secondItem="eta-SR-xtY" secondAttribute="trailing" constant="18" id="J4C-o6-kp2"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ltf-6V-EKW" secondAttribute="bottom" constant="6.6699999999999999" id="enq-bV-wsQ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isCompleteButton" destination="eta-SR-xtY" id="3N6-yz-TKc"/>
+                                    <outlet property="titleLabel" destination="Ltf-6V-EKW" id="0uh-eZ-D3u"/>
+                                    <segue destination="9uJ-UG-Bzm" kind="presentation" id="oW1-vc-zAq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -40,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vES-u5-gF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11" y="-732"/>
+            <point key="canvasLocation" x="-31.297709923664122" y="-732.3943661971831"/>
         </scene>
         <!--New To-Do-->
         <scene sceneID="jOQ-LS-uIy">
@@ -214,12 +247,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="leU-Tx-HqN" kind="relationship" relationship="rootViewController" id="dib-dE-gba"/>
+                        <segue destination="leU-Tx-HqN" kind="relationship" relationship="rootViewController" destinationCreationSelector="editToDo:sender:" id="dib-dE-gba"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kuf-3T-e2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="808" y="-732"/>
+            <point key="canvasLocation" x="836" y="-732"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sRp-5k-kbw">
@@ -235,9 +268,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOP-fB-rFJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1172" y="-731"/>
+            <point key="canvasLocation" x="-943" y="-732"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="oW1-vc-zAq"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="circle" catalog="system" width="128" height="123"/>
